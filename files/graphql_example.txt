@@ -1,0 +1,51 @@
+query ($characterId: Int!, $episodeId: Int!) {
+  character(characterId: $characterId) {
+    name
+    gender
+    status
+    id
+  }
+  location(locationId: 190) {
+    name
+    dimension
+  }
+  episode(episodeId: $episodeId) {
+    name
+    air_date
+    episode
+  }
+  characters(filters: {name: "Rahul"}) {
+    info {
+      count
+    }
+    result {
+      name
+      type
+      id
+      location {
+        id
+      }
+      episodes {
+        id
+        name
+      }
+    }
+  }
+  episodes(filters: {episode: "hulu"}) {
+    info {
+      count
+    }
+    result {
+      id
+      name
+      air_date
+      episode
+    }
+  }
+}
+
+Query variables:
+{
+  "characterId": 650,
+  "episodeId": 10532
+}

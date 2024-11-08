@@ -1,0 +1,40 @@
+mutation {
+  createLocation(location: {name: "Aus", type: "Southzone", dimension: "234"}) {
+    id
+  }
+  createCharacter(character: {name: "Robin", type: "Macho", status: "dead", species: "fantasy", gender: "male", image: "png", originId: 15185, locationId: 15185}) {
+    id
+  }
+  createEpisode(episode: {name: "The dark one", air_date: "11-11-11", episode: "mulup"}) {
+    id
+  }
+  deleteLocations(locationIds: [15187]) {
+    locationsDeleted
+  }
+}
+
+-------------------------
+
+mutation ($locationName: String!, $characterName: String!, $episodeName: String!) {
+  createLocation(location: {name: $locationName, type: "Southzone", dimension: "234"}) {
+    id
+  }
+  createCharacter(character: {name: $characterName, type: "Macho", status: "dead", species: "fantasy", gender: "male", image: "png", originId: 15185, locationId: 15185}) {
+    id
+  }
+  createEpisode(episode: {name: $episodeName, air_date: "11-11-11", episode: "mulup"}) {
+    id
+  }
+  deleteLocations(locationIds: [15187]) {
+    locationsDeleted
+  }
+}
+
+
+query variables:
+
+{
+  "locationName": "New Zealand",
+  "characterName": "Baskin Robin",
+  "episodeName": "Manifest"
+}
